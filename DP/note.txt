@@ -1,0 +1,37 @@
+1. Bài toán cái túi 01, check dãy con tổng bằng S
+- Không tính hoán vị trùng nhau (123 và 321 và 312 là 1)
+- Không được phép dùng a[i] nhiều lần
+- Tìm dãy con có tổng bằng S
+C1: Sử dụng 2 chiều dp: dp[i][j] là giá trị lớn nhất khi chọn các túi 1->i và klượng max là j
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= s; j++)
+            dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - w[i]] + v[i]);
+C2: Sử dụng 1 chiều dp: dp[i] là giá trị lớn nhất khi có klượng max là i
+    for (int i = 1; i <= n; i++)
+        for (int j = s; j >= a[i]; j--) // đảo ngược để không xét trùng lặp
+            dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+
+
+2. coin 3
+- Không tính hoán vị trùng nhau (123 và 321 và 312 là 1)
+- Được phép dùng a[i] nhiều lần
+- Tìm số cách chọn có tổng bằng S
+C1: Sử dụng 2 chiều dp: dp[i][j] là số cách chọn khi chọn các coin từ 1->i và sum là j
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= s; j++)
+            dp[i][j] = dp[i - 1][j] + dp[i][j - a[i]];
+C2: Sử dụng 1 chiều: dp[i] là số cách chọn khi sum là i
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= s; j++)
+            dp[j] = dp[j] + dp[j - a[i]];
+
+
+3. coin 2, fibo, staircase, xuc xac
+- Có tính hoán vị trùng nhau
+- Được sử dụng a[i] nhiều lần
+- Tìm số cách chọn có tổng bằng S
+for (int i = 1; i <= s; i++)
+    for (int j = 1; j <= n; j++)
+    {
+
+    }
