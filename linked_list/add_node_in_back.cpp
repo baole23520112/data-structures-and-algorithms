@@ -16,16 +16,16 @@ node *makeNode(int x){
 }
 
 void pushBack(node *&head, int x){
-    node *newNode = makeNode(x);
-    if (head == NULL){
+    node *newNode = makeNode(x); // create a blank node
+    if (head == NULL){ // if my linked list doesn't have any node
         head = newNode;
         return;
     }
-    node *temp = head;
-    while(temp->next != NULL){
+    node *temp = head; // another pointer
+    while(temp->next != NULL){ // traverse to the last node
         temp = temp->next;
     }
-    temp->next = newNode;
+    temp->next = newNode; // assign next pointer of last node that will point to that blank node
 }
 
 void traverse(node *head){

@@ -1,2 +1,0 @@
-
-        string temp = q.front();

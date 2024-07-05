@@ -23,9 +23,9 @@ void traverseList(node *head){
 }
 
 void pushFront(node *&head, int x){
-    node *newNode = makeNode(x);
-    newNode->next = head;
-    head = newNode;
+    node *newNode = makeNode(x); // create a blank node
+    newNode->next = head; // assign the next pointer that points head
+    head = newNode; // exchange new node for head
 }
 
 int main(){

@@ -15,7 +15,6 @@ typedef pair<int, int> pai;
 
 int n, m, s;
 vector<pair<int, int>> dske[1000005];
-int visited[1000005];
 
 void inp()
 {
@@ -30,15 +29,16 @@ void inp()
 
 void dijkstra(int s)
 {
-    vector<int> d(n + 1, 1e9);
+    vector<int> d(n + 1, 1e9); // initialize
     priority_queue<pai, vector<pai>, greater<pai>> q;
+    stack<int> st;
     d[s] = 0;
     q.push({0, s});
     while(!q.empty())
     {
         auto temp = q.top(); q.pop();
         int weight = temp.first, finish = temp.second;
-        // weight is the shortest path of root s
+        // weight is the shortest path of root s to current vertex
         if (weight > d[finish]) continue;
         for (auto x : dske[finish])
         {
